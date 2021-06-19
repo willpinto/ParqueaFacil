@@ -1,0 +1,40 @@
+body {
+    background-image: url("../img/fondos/orangewaves.jpg");
+}
+
+.btn-check {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+}
+
+.btn-check.out {
+    background-image: url("../img/logos/checkout.png");
+}
+
+.btn-check.in {
+    background-image: url("../img/logos/checkin.png");
+}
+
+.btn-check.outline {
+    border: 1px solid #19B3B3;
+    border-radius: 50%;
+}
+
+.btn-check:hover {
+    background-color: #19b3b373;
+    border: none;
+}
+
+.btn-check:active {
+    background-color: #19b3b349;
+    border: none;
+}
+
+.h-40 {
+    height: 40%;
+}
+
+.h-65 {
+    height: 65%;
+}

@@ -1,0 +1,98 @@
+body {
+    background-image: url("../img/fondos/wave1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Abril Fatface', cursive;
+}
+
+.text-primary-dark {
+    color: #19B3B3 !important;
+}
+
+.bg-primary-dark { 
+    background-color: #19B3B3 !important;
+}
+
+.btn-primary-dark {
+    background-color: #19B3B3 !important;
+    color: white;
+}
+
+.btn-primary-dark:hover {
+    background-color: #149191 !important;
+    color: whitesmoke;
+}
+
+.btn-primary-dark:active {
+    background-color: #1ac7c7 !important;
+    color: moccasin;
+}
+
+.btn-orange {
+    background-color: orange !important;
+    color: white;
+}
+
+.btn-orange:hover {
+    background-color: darkorange !important;
+    color: whitesmoke;
+}
+
+.btn-orange:active {
+    background-color: #ffb326 !important;
+    color: lightgray;
+}
+
+.text-dorange {
+    color: darkorange;
+}
+
+.logo-sena-large {
+    height: 250px;
+    width: auto;
+}
+
+.logo-sena-medium {
+    height: 170px;
+    width: auto;
+}
+
+.logo-sena-smallium {
+    height: 110px;
+    width: auto;
+}
+
+.logo-sena-small {
+    height: 70px;
+    width: auto;
+}
+
+.cam {
+    background-color: black;
+    height: 150px;
+    width: auto;
+}
+
+.no-resize-textarea:read-only {
+    background-color: white;
+    resize: none;
+}
+
+.btn-circle {
+    border-radius: 50%;
+}
+
+.text-small {
+    font-size: 8px;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+* {
+    user-select: none;
+}
