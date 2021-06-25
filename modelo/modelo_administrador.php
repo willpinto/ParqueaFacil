@@ -16,7 +16,7 @@ class Modelo_Administrador
         try {
             $comando = $this->pdo->prepare("CALL listaradministradores");
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());
@@ -29,7 +29,7 @@ class Modelo_Administrador
             $comando = $this->pdo->prepare("CALL consultaradministrador(:id)");
             $comando->bindParam(':id', $id);
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());
@@ -81,7 +81,7 @@ class Modelo_Administrador
             $comando = $this->pdo->prepare("CALL consultarnumerovehiculosportipo(:tipo)");
             $comando->bindParam(':tipo', $tipo);
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());
@@ -95,7 +95,7 @@ class Modelo_Administrador
             $comando->bindParam(':fi', $finicio);
             $comando->bindParam(':ff', $ffinal);
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());
@@ -109,7 +109,7 @@ class Modelo_Administrador
             $comando->bindParam(':fi', $finicio);
             $comando->bindParam(':ff', $ffinal);
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());

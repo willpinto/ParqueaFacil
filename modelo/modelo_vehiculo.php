@@ -16,7 +16,7 @@ class Modelo_Vehiculo
         try {
             $comando = $this->pdo->prepare("CALL listarvehiculos");
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());
@@ -29,7 +29,7 @@ class Modelo_Vehiculo
             $comando = $this->pdo->prepare("CALL consultarvehiculo(:id)");
             $comando->bindParam(':id', $placa);
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());
@@ -96,7 +96,7 @@ class Modelo_Vehiculo
             $comando->bindParam(':placa', $placa);
             $comando->bindParam(':documento', $documento);
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());
@@ -109,7 +109,7 @@ class Modelo_Vehiculo
             $comando = $this->pdo->prepare("CALL consultarvehiculosporpropietario(:documento)");
             $comando->bindParam(':documento', $documento);
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());

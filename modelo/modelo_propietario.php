@@ -16,7 +16,7 @@ class Modelo_Propietario
         try {
             $comando = $this->pdo->prepare("CALL listarpropietarios");
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());
@@ -29,7 +29,7 @@ class Modelo_Propietario
             $comando = $this->pdo->prepare("CALL consultarpropietario(:cedula)");
             $comando->bindParam(':cedula', $cedula);
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());

@@ -14,9 +14,9 @@ class Modelo_Vigilante
     function ListarVigilantes()
     {
         try {
-            $comando = $this->pdo->prepare("CALL listarvigilantees");
+            $comando = $this->pdo->prepare("CALL listarvigilantes");
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());
@@ -29,7 +29,7 @@ class Modelo_Vigilante
             $comando = $this->pdo->prepare("CALL consultarvigilante(:id)");
             $comando->bindParam(':id', $id);
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());

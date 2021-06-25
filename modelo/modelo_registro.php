@@ -16,7 +16,7 @@ class Modelo_Registro
         try {
             $comando = $this->pdo->prepare("CALL listarregistros");
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());
@@ -29,7 +29,7 @@ class Modelo_Registro
             $comando = $this->pdo->prepare("CALL consultarregistro(:id)");
             $comando->bindParam(':id', $id);
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());
@@ -108,7 +108,7 @@ class Modelo_Registro
             $comando->bindParam(':documento', $documento);
             $comando->bindParam(':placa', $placa);
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());
@@ -136,7 +136,7 @@ class Modelo_Registro
             $comando = $this->pdo->prepare("CALL consultarregistroactivoporplaca(:placa)");
             $comando->bindParam(':placa', $placa);
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());
@@ -148,7 +148,7 @@ class Modelo_Registro
             $comando = $this->pdo->prepare("CALL consultarregistroactivoporticket(:numero)");
             $comando->bindParam(':numero', $numero);
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());
@@ -177,7 +177,7 @@ class Modelo_Registro
             $comando = $this->pdo->prepare("CALL obtenerDatosConductorCheckOut(:id)");
             $comando->bindParam(':id', $id);
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             if($resultado != null) {
                 return $resultado;
             }
@@ -191,7 +191,7 @@ class Modelo_Registro
         try {
             $comando = $this->pdo->prepare("CALL consultarplacasactivas");
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             if($resultado != null) {
                 return $resultado;
             }

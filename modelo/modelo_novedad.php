@@ -16,7 +16,7 @@ class Modelo_Novedad
         try {
             $comando = $this->pdo->prepare("CALL listarnovedades");
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());
@@ -29,7 +29,7 @@ class Modelo_Novedad
             $comando = $this->pdo->prepare("CALL consultarnovedad(:id)");
             $comando->bindParam(':id', $id);
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());
@@ -76,10 +76,23 @@ class Modelo_Novedad
     function CargarNovedadesPorNumeroTicket($id)
     {
         try {
-            $comando = $this->pdo->prepare("CALL cargarNovedadesPorNumeroTicket(:id)");
+            $comando = $this->pdo->prepare("CALL cargarnovedadespornumeroticket(:id)");
             $comando->bindParam(':id', $id);
             $comando->execute();
-            $resultado = $comando->fetchAll();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
+            return $resultado;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    function CargarNovedadesPorRegistro($id)
+    {
+        try {
+            $comando = $this->pdo->prepare("CALL cargarnovedadesporregistro(:id)");
+            $comando->bindParam(':id', $id);
+            $comando->execute();
+            $resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch (Exception $e) {
             die($e->getMessage());
