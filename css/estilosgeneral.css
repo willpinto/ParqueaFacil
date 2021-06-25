@@ -8,25 +8,39 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Abril Fatface', cursive;
 }
 
-.text-primary-dark {
+input.wo-arrows::-webkit-outer-spin-button,
+input.wo-arrows::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input.wo-arrows[type=number] {
+    -moz-appearance: textfield;
+}
+
+.text-primary-lighter {
+    color: #19dada !important;
+}
+
+.text-primary-light {
     color: #19B3B3 !important;
 }
 
-.bg-primary-dark { 
+.bg-primary-light { 
     background-color: #19B3B3 !important;
 }
 
-.btn-primary-dark {
+.btn-primary-light {
     background-color: #19B3B3 !important;
     color: white;
 }
 
-.btn-primary-dark:hover {
+.btn-primary-light:hover {
     background-color: #149191 !important;
     color: whitesmoke;
 }
 
-.btn-primary-dark:active {
+.btn-primary-light:active {
     background-color: #1ac7c7 !important;
     color: moccasin;
 }
@@ -47,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .text-dorange {
-    color: darkorange;
+    color: darkorange !important;
 }
 
 .logo-sena-large {
