@@ -66,7 +66,7 @@ $(document).ready(function() {
                 return;
             }
         } else {
-            placa = $('#placa-co').val();
+            placa = $('#placa-co').val().toUpperCase();
             if($('#cedula-co').val() == "" || placa == ""){
                 alert("Aún falta datos validos");
                 return;
