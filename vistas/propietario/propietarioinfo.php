@@ -537,7 +537,7 @@
                 <div class="modal-body px-0">
                     <div class="row mx-2">
                         <div class="col">
-                            <table class="table-warning table-striped table-bordered table-hover w-90" id="tablavehiculos"></table>
+                            <table class="table-warning table-striped table-bordered table-hover w-100" id="tablavehiculos"></table>
                         </div>
                     </div>
                 </div>
