@@ -71,18 +71,24 @@
                                     <li>
                                         <a id="activar-conductor">Conductor</a>
                                     </li>
+                                    <li>
+                                        <a id="activar-vehiculo">Vehiculo</a>
+                                    </li>
+                                    <li>
+                                        <a id="activar-registro">Registro</a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
                         <li class="header-menu">
                             <span>Extra</span>
                         </li>
-                        <li>
+                        <!--<li>
                             <a id="activar-consultar">
                                 <i class="fa fa-search"></i>
                                 <span>Consultar</span>
                             </a>
-                        </li>
+                        </li>-->
                         <li>
                             <a id="activar-reportes">
                                 <i class="fa fa-book"></i>
@@ -116,176 +122,52 @@
         <main class="page-content">
             <div class="container-fluid">
                 <div class="container px-5">
-                    <!--Sección consultar-->
-                    <div class="pages ocultar" id="consultar">
+                    <!--Sección administrador-->
+                    <div class="pages d-none" id="administrador">
                         <div class="row">
                             <div class="col">
-                                <h1 class="text-center">Consultar Usuario</h1>
+                                <h1 class="text-center">Gestionar administrador</h1>
                             </div>
                         </div>
-                        <div class="row pt-5">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group my-3">
-                                            <label>Tipo:</label>
-                                            <select class="form-control" id="tipo-usuario">
-                                                <option value="adm">Administrador</option>
-                                                <option value="vig">Vigilante</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group my-3">
-                                            <label>Cédula:</label>
-                                            <input class="form-control" id="cedula-usu" type="number" required>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="row mt-5">
+                            <div class="col-2 d-flex flex-column">
+                                <button id="btnRegistrarAdministrador" class="btn btn-primary">Nuevo...</button>
                             </div>
+                            <div class="col"></div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col"></div>
-                            <div class="col-3 d-flex flex-column">
-                                <button id="btnConsultar" class="btn btn-primary">Buscar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Sección administrador-->
-                    <div class="consultas pages ocultar" id="administrador">
-                        <div class="row">
                             <div class="col">
-                                <h1 class="text-center">Administrador</h1>
-                            </div>
-                        </div>
-                        <div class="row pt-5">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group my-3">
-                                            <label>Cédula:</label>
-                                            <input class="form-control" id="cedula-adm" type="number" required>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group my-3">
-                                            <label>Nombres:</label>
-                                            <input class="form-control" id="nombres-adm" type="text" required>
-                                        </div>
-                                    </div>
+                                <div id="mensajeadministrador" class="alert alert-danger d-none" role="alert">
+                                    Actualmente no existe administradores
                                 </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group my-3">
-                                            <label>Cargo:</label>
-                                            <input class="form-control" id="cargo" type="text" required>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group my-3">
-                                            <label>Contraseña:</label>
-                                            <input class="form-control" id="pass-adm" type="text" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6"></div>
-                                    <div class="col">
-                                        <div class="form-group my-3">
-                                            <label>Repita contraseña:</label>
-                                            <input class="form-control" id="pass-rep-adm" type="text" required>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt-3 ingresar">
-                            <div class="col"></div>
-                            <div class="col-3 d-flex flex-column">
-                                <button id="btnAdministrador" class="btn btn-primary">Ingresar</button>
+                                <table class="table table-striped table-bordered table-hover w-100" id="tablaadministrador"></table>
                             </div>
                         </div>
                     </div>
                     <!--Sección vigilante-->
-                    <div class="consultas pages ocultar" id="vigilante">
+                    <div class="pages d-none" id="vigilante">
                         <div class="row">
                             <div class="col">
-                                <h1 class="text-center">Vigilante</h1>
+                                <h1 class="text-center">Gestionar vigilante</h1>
                             </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-2 d-flex flex-column">
+                                <button id="btnRegistrarVigilante" class="btn btn-primary">Nuevo...</button>
+                            </div>
+                            <div class="col"></div>
                         </div>
                         <div class="row pt-5">
                             <div class="col">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group my-3">
-                                            <label>Cédula:</label>
-                                            <input class="form-control" id="cedula-vig" type="number" required>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group my-3">
-                                            <label>Nombres:</label>
-                                            <input class="form-control" id="nombres-vig" type="text" required>
-                                        </div>
-                                    </div>
+                                <div id="mensajevigilante" class="alert alert-danger d-none" role="alert">
+                                    Actualmente no existe vigilantes
                                 </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group my-3">
-                                            <label>Rol:</label>
-                                            <input class="form-control" id="rol" type="text" required>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group my-3">
-                                            <label>Turno:</label>
-                                            <input class="form-control" id="turno" type="text" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group my-3">
-                                            <label>Contraseña:</label>
-                                            <input class="form-control" id="pass-vig" type="text" required>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group my-3">
-                                            <label>Repita contraseña:</label>
-                                            <input class="form-control" id="pass-rep-vig" type="text" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6"></div>
-                                    <div class="col">
-                                        <div class="form-group my-3">
-                                            <label for="documentoadm">Administrador a cargo</label>
-                                            <select class="form-control" id="documentoadm"></select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt-3 ingresar">
-                            <div class="col"></div>
-                            <div class="col-3 d-flex flex-column">
-                                <button id="btnVigilante" class="btn btn-primary">Ingresar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Sección botones modificar/eliminar-->
-                    <div class="mb-5 pb-5 ocultar" id="modificar-eliminar">
-                        <div class="row mt-3">
-                            <div class="col d-flex flex-row-reverse">
-                                <button id="btnActualizar" class="btn btn-primary mx-1">Actualizar</button>
-                                <button id="btnEliminar" class="btn btn-primary mx-1">Eliminar</button>
+                                <table class="table table-striped table-bordered table-hover w-100" id="tablavigilante"></table>
                             </div>
                         </div>
                     </div>
                     <!--Sección Conductor y Vehículo-->
-                    <div class="pages ocultar" id="conductor">
+                    <div class="pages d-none" id="conductor">
                         <div class="row">
                             <div class="col">
                                 <h1>Gestionar conductores y vehículos</h1>
@@ -307,7 +189,7 @@
                             </div>
                         </div>
                         <div id="info-cond" class="d-none">
-                            <div class="card">
+                            <div class="card mb-5">
                                 <div class="card-body">
                                     <div class="row mt-3">
                                         <div class="col">
@@ -347,27 +229,68 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row mt-2">
+                                    <div class="row mt-5">
                                         <div class="col d-flex flex-row-reverse">
                                             <button id="btnAgregarVehiculo" class="btn btn-success mx-1">Agregar vehículo</button>
                                         </div>
                                     </div>
-                                    <div class="row pt-5">
+                                    <div class="row">
                                         <div class="col">
                                             <h3>Vehículos de <span class="nombres-cond"></span></h3>
                                         </div>
                                     </div>
-                                    <div class="row mb-5 pb-5">
+                                    <div class="row mb-3">
                                         <div class="col">
-                                            <table class="table table-striped table-bordered table-hover" id="tablavehiculosporconductor"></table>
+                                            <div id="mensajevehiculoconductor" class="alert alert-danger d-none" role="alert">
+                                                Actualmente no existe vehiculos asociados al conductor
+                                            </div>
+                                            <table class="table table-striped table-bordered table-hover w-100" id="tablavehiculosporconductor"></table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!--Sección vehiculo-->
+                    <div class="pages d-none" id="vehiculo">
+                        <div class="row">
+                            <div class="col">
+                                <h1 class="text-center">Gestionar vehiculo</h1>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-2 d-flex flex-column">
+                                <button id="btnRegistrarVehiculo" class="btn btn-primary">Nuevo...</button>
+                            </div>
+                            <div class="col"></div>
+                        </div>
+                        <div class="row pt-5">
+                            <div class="col">
+                                <div id="mensajevehiculo" class="alert alert-danger d-none" role="alert">
+                                    Actualmente no existe vehiculos
+                                </div>
+                                <table class="table table-striped table-bordered table-hover w-100" id="tablavehiculo"></table>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Sección registro-->
+                    <div class="pages d-none" id="registro">
+                        <div class="row">
+                            <div class="col">
+                                <h1 class="text-center">Gestionar registro</h1>
+                            </div>
+                        </div>
+                        <div class="row pt-5">
+                            <div class="col">
+                                <div id="mensajeregistro" class="alert alert-danger d-none" role="alert">
+                                    Actualmente no existe registros
+                                </div>
+                                <table class="table table-striped table-bordered table-hover w-100" id="tablaregistro"></table>
+                            </div>
+                        </div>
+                    </div>
                     <!--Sección reportes-->
-                    <div class="pages ocultar" id="reportes">
+                    <div class="pages mb-5 d-none" id="reportes">
                         <div class="row">
                             <div class="col">
                                 <h1>Reportes</h1>
@@ -382,7 +305,7 @@
                                             <select class="form-control" id="parametro">
                                                 <option value="nvt">Número de vehículos por tipo</option>
                                                 <option value="vif">Vehículos ingresados entre fechas</option>
-                                                <option value="vef">Vehiculos egrasados entre fechas</option>
+                                                <option value="vef">Vehiculos egresados entre fechas</option>
                                             </select>
                                         </div>
                                     </div>
@@ -421,7 +344,10 @@
                         </div>
                         <div class="row pt-5">
                             <div class="col">
-                                <table class="table table-striped table-bordered table-hover" id="tablavehiculos"></table>
+                                <div id="mensajeadministradorreportes" class="alert alert-danger d-none" role="alert">
+                                    No existen vehículos que cumplan con los parametros establecidos
+                                </div>
+                                <table class="table table-striped table-bordered table-hover w-100" id="tablavehiculos"></table>
                             </div>
                         </div>
                     </div>
@@ -431,6 +357,154 @@
         <!-- page-content" -->
     </div>
     <!--Modales-->
+    <div class="modal fade" id="administrador-modal" data-backdrop="static" data-keyboard="false" tabindex="-2" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="titulo-administrador-modal" class="modal-title"></h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <fieldset id="form-administrador">
+                        <div class="row">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group my-3">
+                                            <label>Cédula:</label>
+                                            <input class="form-control" id="cedula-adm" type="number" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group my-3">
+                                            <label>Nombres:</label>
+                                            <input class="form-control" id="nombres-adm" type="text" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group my-3">
+                                            <label>Cargo:</label>
+                                            <input class="form-control" id="cargo-adm" type="text" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group my-3">
+                                            <label>Contraseña:</label>
+                                            <input class="form-control" id="pass-adm" type="text" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6"></div>
+                                    <div class="col">
+                                        <div class="form-group my-3">
+                                            <label>Repita contraseña:</label>
+                                            <input class="form-control" id="pass-rep-adm" type="text" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col">
+                            <button id="btnGuardarAdministrador" class="buttons-administrador-modal btn btn-info d-none">Guardar</button>
+                            <button id="btnEliminarAdministrador" class="buttons-administrador-modal btn btn-danger d-none">Eliminar</button>
+                            <button id="btnActualizarAdministrador" class="buttons-administrador-modal btn btn-success d-none">Actualizar</button>
+                            <button id="btnEditarAdministrador" class="buttons-administrador-modal btn btn-warning d-none">Editar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="vigilante-modal" data-backdrop="static" data-keyboard="false" tabindex="-2" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="titulo-vigilante-modal" class="modal-title"></h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <fieldset id="form-vigilante">
+                        <div class="row">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group my-3">
+                                            <label>Cédula:</label>
+                                            <input class="form-control" id="cedula-vig" type="number" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group my-3">
+                                            <label>Nombres:</label>
+                                            <input class="form-control" id="nombres-vig" type="text" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group my-3">
+                                            <label>Rol:</label>
+                                            <input class="form-control" id="rol-vig" type="text" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group my-3">
+                                            <label>Turno:</label>
+                                            <input class="form-control" id="turno-vig" type="text" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group my-3">
+                                            <label>Contraseña:</label>
+                                            <input class="form-control" id="pass-vig" type="text" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group my-3">
+                                            <label>Repita contraseña:</label>
+                                            <input class="form-control" id="pass-rep-vig" type="text" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6"></div>
+                                    <div class="col">
+                                        <div class="form-group my-3">
+                                            <label for="documentoadm">Administrador a cargo</label>
+                                            <select class="form-control" id="documento-adm-vig"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col">
+                            <button id="btnGuardarVigilante" class="buttons-vigilante-modal btn btn-info d-none">Guardar</button>
+                            <button id="btnEliminarVigilante" class="buttons-vigilante-modal btn btn-danger d-none">Eliminar</button>
+                            <button id="btnActualizarVigilante" class="buttons-vigilante-modal btn btn-success d-none">Actualizar</button>
+                            <button id="btnEditarVigilante" class="buttons-vigilante-modal btn btn-warning d-none">Editar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" id="nuevo-conductor-modal" data-backdrop="static" data-keyboard="false" tabindex="-2" role="dialog">
         <div class="modal-dialog modal-sm modal-dialog-centered modal-dialog-scrollable" role="document">
             <div class="modal-content alert-primary">
@@ -642,18 +716,18 @@
                     <div class="row">
                         <div class="col">
                             <button id="btnAsociarVehiculo" class="buttons-validar-vehiculo-modal btn btn-success d-none">Asociar a conductor</button>
-                            <button id="btnCrearNuevoVehiculo" class="buttons-vehiculovehiculo-modal btn btn-primary d-none">Crear nuevo</button>
+                            <button id="btnCrearNuevoVehiculo" class="buttons-validar-vehiculo-modal btn btn-primary d-none">Crear nuevo</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="registro-vehiculo-modal" data-backdrop="static" data-keyboard="false" tabindex="-2" role="dialog">
+    <div class="modal fade" id="vehiculo-modal" data-backdrop="static" data-keyboard="false" tabindex="-2" role="dialog">
         <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 id="titulo-registro-vehiculo-modal" class="modal-title"></h4>
+                    <h4 id="titulo-vehiculo-modal" class="modal-title"></h4>
                     <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -665,20 +739,13 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group row">
-                                            <label class="col-3 col-form-label">Documento:</label>
-                                            <div class="col">
-                                                <input type="number" class="form-control" id="documento-veh" disabled>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group row">
                                             <label class="col-2 col-form-label">Placa:</label>
                                             <div class="col">
-                                                <input type="text" class="form-control" id="placa-veh" disabled>
+                                                <input type="text" class="form-control text-uppercase mask-placa" id="placa-veh" disabled>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col"></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-1">
@@ -787,9 +854,39 @@
                 <div class="modal-footer">
                     <div class="row">
                         <div class="col">
-                            <button id="btnRegistrarVehiculo" class="buttons-vehiculo-modal btn btn-info d-none">Guardar y asociar</button>
+                            <button id="btnGuardarVehiculo" class="buttons-vehiculo-modal btn btn-info d-none"></button>
+                            <button id="btnEliminarVehiculo" class="buttons-vehiculo-modal btn btn-danger d-none">Eliminar</button>
                             <button id="btnActualizarVehiculo" class="buttons-vehiculo-modal btn btn-success d-none">Actualizar</button>
                             <button id="btnEditarVehiculo" class="buttons-vehiculo-modal btn btn-warning d-none">Editar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="novedad-modal" data-backdrop="static" data-keyboard="false" tabindex="-2" role="dialog">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" role="document">
+            <div class="modal-content alert-primary">
+                <div class="modal-header">
+                    <h4 class="modal-title">Novedades del registro</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <div id="mensajenovedad" class="alert alert-danger d-none" role="alert">
+                                No existen novedades para el registro seleccionado
+                            </div>
+                            <table class="table table-striped table-bordered table-hover w-100" id="tablanovedad"></table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-secondary btn-block" data-dismiss="modal">Cancelar</button>
                         </div>
                     </div>
                 </div>

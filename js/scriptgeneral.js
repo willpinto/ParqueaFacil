@@ -1,10 +1,12 @@
 $(document).ready(function() {
-    let patternPlaca = /^[A-Z]{3}-\d{2}[0-9A-Z]?$/;
+    let patternPlaca = /^[A-Z]{3}-\d{2}[0-9A-Z]?$/, esGestionar;
     $('[data-toggle="tooltip"]').tooltip();
-    $('.text-uppercase').inputmask({
-        mask: 'AAA-99[*]',
-        greedy: true
-    });
+    if($('.mask-placa').length > 0) {
+        $('.mask-placa').inputmask({
+            mask: 'AAA-99[*]',
+            greedy: true
+        });
+    }
 
     //Eventos para login/página principal
     $('#login').click(function() {
@@ -89,7 +91,7 @@ $(document).ready(function() {
         alert("Debe ingresar todos los datos para poder continuar");
     });
 
-    //Eventos para propietario 
+    //Eventos para conductor 
     $('#cerrarSesionProp').click(function() {
         CerrarSesion();
     });
@@ -152,37 +154,30 @@ $(document).ready(function() {
 
     //Eventos para administrador
     $('#activar-administrador').click(function() {
-        ocultarElementos();
-        $('#administrador').removeClass('ocultar');
+        ocultarElementos("#administrador");
+        prepararGeneracionTabla({ accion: "listar" }, "#tablaadministrador", "administrador", true);
     });
     $('#activar-vigilante').click(function() {
-        ocultarElementos();
-        $('#vigilante').removeClass('ocultar');
+        ocultarElementos("#vigilante");
+        cargarAdministradores();
+        prepararGeneracionTabla({ accion: "listar" }, "#tablavigilante", "vigilante", true);
     });  
     $('#activar-conductor').click(function() {
-        ocultarElementos();
-        $('#conductor').removeClass('ocultar');
-    });  
-    $('#activar-consultar').click(function() {
-        ocultarElementos();
-        $('#consultar').removeClass('ocultar');
-    });  
-    $('#activar-reportes').click(function() {
-        ocultarElementos();
-        $('#reportes').removeClass('ocultar');
-        activarComponentesReportes();
+        ocultarElementos("#conductor");
+        $('#placa-veh').prop('disabled', true);
     });
-
-    $('#btnConsultar').click(function() {
-        let usuario = $('#tipo-usuario').val();
-        switch (usuario) {
-            case "adm":
-                consultarYLlenarDatosAdministrador();
-                break;
-            case "vig":
-                consultarYLlenarDatosVigilante();
-                break;
-        }
+    $('#activar-vehiculo').click(function() {
+        ocultarElementos("#vehiculo");
+        $('#placa-veh').removeAttr('disabled');
+        prepararGeneracionTabla({ accion: "listar" }, "#tablavehiculo", "vehiculo", true);
+    });
+    $('#activar-registro').click(function() {
+        ocultarElementos("#registro");
+        prepararGeneracionTabla({ accion: "listar" }, "#tablaregistro", "registro", true);
+    });
+    $('#activar-reportes').click(function() {
+        ocultarElementos("#reportes");
+        activarComponentesReportes();
     });
 
     $('#salir-admin').click(function() {
@@ -190,19 +185,72 @@ $(document).ready(function() {
         document.forms['form1'].submit();
     });
 
-    function ocultarElementos() {
-        $('.pages').addClass('ocultar');
-        $('.ingresar').removeClass('ocultar');
-        $('#modificar-eliminar').addClass('ocultar');
+    function ocultarElementos(entity) {
+        $('.pages').addClass('d-none');
+        $(entity).removeClass('d-none');
         $('#info-cond').addClass('d-none');
     }
 
-    $('#btnAdministrador').click(function() {
-        validarContrasenasAdmin(true);
+    $('#btnRegistrarAdministrador').click(function() {
+        limpiarElementosAdmin();
+        $('#titulo-administrador-modal').text("Registrar administrador");
+        $('#administrador-modal').modal("show");
+        visualizacionForm(false, '#btnGuardarAdministrador', "administrador");
+        $('#btnEliminarAdministrador').addClass("d-none");
+        $('#cedula-adm').removeAttr("disabled");
     });
 
-    $('#btnVigilante').click(function() {
-        validarContrasenasVig(true);
+    $('#btnGuardarAdministrador').click(function() {
+        if(validarDatosAdministrador()) {
+            validarContrasenasAdmin("Guardar");
+        }
+    });
+
+    $('#btnEditarAdministrador').click(function() {
+        $('#titulo-administrador-modal').text("Actualizar administrador");
+        visualizacionForm(false, '#btnActualizarAdministrador', "administrador");
+        $('#btnEliminarAdministrador').addClass("d-none");
+    });
+
+    $('#btnActualizarAdministrador').click(function() {
+        if(validarDatosAdministrador()) {
+            validarContrasenasAdmin("Actualizar");
+        }
+    });
+
+    $('#btnEliminarAdministrador').click(function() {
+        eliminarAdministrador();
+    });
+
+    $('#btnRegistrarVigilante').click(function() {
+        limpiarElementosVig();
+        $('#titulo-vigilante-modal').text("Registrar vigilante");
+        $('#vigilante-modal').modal("show");
+        visualizacionForm(false, '#btnGuardarVigilante', "vigilante");
+        $('#btnEliminarVigilante').addClass("d-none");
+        $('#cedula-vig').removeAttr("disabled");
+    });
+
+    $('#btnGuardarVigilante').click(function() {
+        if(validarDatosVigilante()) {
+            validarContrasenasVig("Guardar");
+        }
+    });
+
+    $('#btnEditarVigilante').click(function() {
+        $('#titulo-vigilante-modal').text("Actualizar vigilante");
+        visualizacionForm(false, '#btnActualizarVigilante', "vigilante");
+        $('#btnEliminarVigilante').addClass("d-none");
+    });
+
+    $('#btnActualizarVigilante').click(function() {
+        if(validarDatosVigilante()) {
+            validarContrasenasVig("Actualizar");
+        }
+    });
+
+    $('#btnEliminarVigilante').click(function() {
+        eliminarVigilante();
     });
 
     $('#btnBuscarConductor').click(function() {
@@ -217,13 +265,13 @@ $(document).ready(function() {
     $('#btnCrearNuevoConductor').click(function() {
         $('#titulo-registro-conductor-modal').text("Registrar conductor");
         $('#registro-conductor-modal').modal('show');
-        visualizacionFormConductor(false, '#btnRegistrarConductor');
+        visualizacionForm(false, '#btnRegistrarConductor', "conductor");
         $('#nuevo-conductor-modal').modal('hide');
     });
 
     $('#btnRegistrarConductor').click(function() {
         if(validarDatosConductor()) {
-            visualizacionFormConductor(true, '#btnRegistrarConductor');
+            visualizacionForm(true, '#btnRegistrarConductor', "conductor");
             $('#btnRegistrarConductor').prop('disabled', true);
             RegistrarConductor();
         }
@@ -231,12 +279,12 @@ $(document).ready(function() {
 
     $('#btnEditarConductor').click(function() {
         $('#titulo-registro-conductor-modal').text("Editar conductor");
-        visualizacionFormConductor(false, "#btnActualizarConductor");
+        visualizacionForm(false, "#btnActualizarConductor", "conductor");
     });
 
     $('#btnActualizarConductor').click(function() {
         if(validarDatosConductor()) {
-            visualizacionFormConductor(true, '#btnActualizarConductor');
+            visualizacionForm(true, '#btnActualizarConductor', "conductor");
             $('#btnActualizarConductor').prop('disabled', true);
             ActualizarConductor();
         }
@@ -247,7 +295,7 @@ $(document).ready(function() {
         mostrarDatosRegistroConductor();
         $('#titulo-registro-conductor-modal').text("Detalles conductor");
         $('#registro-conductor-modal').modal('show');
-        visualizacionFormConductor(true, "#btnEditarConductor");
+        visualizacionForm(true, "#btnEditarConductor", "conductor");
     });
 
     $('#btnAgregarVehiculo').click(function() {
@@ -271,17 +319,33 @@ $(document).ready(function() {
     });
 
     $('#btnCrearNuevoVehiculo').click(function() {
+        esGestionar = false;
         $('#verificar-vehiculo-modal').modal('hide');
-        $('#registro-vehiculo-modal').modal('show');
-        $('#titulo-registro-vehiculo-modal').text("Registrar vehiculo");
-        visualizacionFormVehiculo(false, '#btnRegistrarVehiculo');
+        $('#vehiculo-modal').modal('show');
+        $('#titulo-vehiculo-modal').text("Registrar vehiculo");
+        $('#btnGuardarVehiculo').text("Guardar y asociar");
+        visualizacionForm(false, '#btnGuardarVehiculo', "vehiculo");
     });
 
     $('#btnRegistrarVehiculo').click(function() {
+        esGestionar = true;
+        $('#titulo-vehiculo-modal').text("Registrar vehiculo");
+        $('#vehiculo-modal').modal("show");
+        $('#btnGuardarVehiculo').text("Guardar");
+        visualizacionForm(false, '#btnGuardarVehiculo', "vehiculo");
+        $('#placa-veh').removeAttr("disabled");
+    });
+
+    $('#btnGuardarVehiculo').click(function() {
+        let placa = $('#placa-veh').val().toUpperCase();
         if(validarDatosVehiculo()) {
-            visualizacionFormVehiculo(true, '#btnRegistrarVehiculo');
-            $('#btnRegistrarVehiculo').prop('disabled', true);
-            RegistrarVehiculo();
+            if(!patternPlaca.test(placa)) {
+                alert("La placa no cumple con el formato establecido");
+                return
+            }
+            visualizacionForm(true, '#btnGuardarVehiculo', "vehiculo");
+            $('#btnGuardarVehiculo').prop('disabled', true);
+            RegistrarVehiculo(esGestionar);
         }
     });
 
@@ -289,37 +353,22 @@ $(document).ready(function() {
         AsociarConductorVehiculo(true);
     });
 
-    $('#btnConsultar').click(function() {
-        let usuario = $('#cedula-usu').val();
-        if(usuario == '') {
-            alert("Debe ingresar un número de cédula valida para continuar");
-            return;
-        }
-        consultarUsuario(usuario);
+    $('#btnEditarVehiculo').click(function() {
+        $('#titulo-vehiculo-modal').text("Actualizar vehiculo");
+        visualizacionForm(false, '#btnActualizarVehiculo', "vehiculo");
+        $('#btnEliminarVehiculo').addClass("d-none");
     });
 
-    $('#btnActualizar').click(function() {
-        let usuario = $('#tipo-usuario').val();
-        switch (usuario) {
-            case "adm":
-                validarContrasenasAdmin(false);
-                break;
-            case "vig":
-                validarContrasenasVig(false);
-                break;
+    $('#btnActualizarVehiculo').click(function() {
+        if(validarDatosVehiculo()) {
+            visualizacionForm(true, '#btnActualizarVehiculo', "vehiculo");
+            $('#btnActualizarVehiculo').prop('disabled', true);
+            actualizarVehiculo();
         }
     });
 
-    $('#btnEliminar').click(function() {
-        let usuario = $('#tipo-usuario').val();
-        switch (usuario) {
-            case "adm":
-                eliminarAdministrador();
-                break;
-            case "vig":
-                eliminarVigilante();
-                break;
-        }
+    $('#btnEliminarVehiculo').click(function() {
+        eliminarVehiculo();
     });
 
     $('#parametro').change(function() {
@@ -331,8 +380,27 @@ $(document).ready(function() {
     });
 
     $('#btnReportes').click(function() {
-        generarTabla();
+        generarReporte();
     });
+
+    function validarDatosAdministrador() {
+        if($('#cedula-adm').val() == "" || $('#nombres-adm').val() == "" ||
+            $('#cargo-adm').val() == "" || $('#pass-adm').val() == "") {
+            alert("Faltan datos por ingresar, por favor ingresar los datos requeridos");
+            return false;
+        }
+        return true;
+    }
+
+    function validarDatosVigilante() {
+        if($('#cedula-vig').val() == "" || $('#nombres-vig').val() == "" ||
+            $('#rol-vig').val() == "" || $('#turno-vig').val() == "" ||
+            $('#pass-vig').val() == "" || $('#documento-adm-vig').val() == "") {
+            alert("Faltan datos por ingresar, por favor ingresar los datos requeridos");
+            return false;
+        }
+        return true;
+    }
 
     function validarDatosConductor() {
         if($('#documento-cond').val() == "" || $('#tipo-documento-cond').val() == "" ||
@@ -348,11 +416,10 @@ $(document).ready(function() {
     }
 
     function validarDatosVehiculo() {
-        if($('#documento-veh').val() == "" || $('#placa-veh').val() == "" ||
-            !$('input:radio[name=tipo-veh]').is(':checked') || $('#marca-veh').val() == "" ||
-            $('#modelo-veh').val() == "" || $('#linea-veh').val() == "" || $('#servicio-veh').val() == "" ||
-            $('#cilindraje-veh').val() == "" || $('#chasis-veh').val() == "" ||
-            $('#motor-veh').val() == "" || $('#color-veh').val() == "" ||
+        if($('#placa-veh').val() == "" || !$('input:radio[name=tipo-veh]').is(':checked') ||
+            $('#marca-veh').val() == "" || $('#modelo-veh').val() == "" || $('#linea-veh').val() == "" ||
+            $('#servicio-veh').val() == "" || $('#cilindraje-veh').val() == "" ||
+            $('#chasis-veh').val() == "" || $('#motor-veh').val() == "" || $('#color-veh').val() == "" ||
             $('#tcarroceria-veh').val() == "") {
             alert("Faltan datos por ingresar, por favor ingresar los datos requeridos");
             return false;
