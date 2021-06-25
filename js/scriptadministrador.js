@@ -515,7 +515,7 @@ function validarAsociaciónVehiculo(placa) {
             if (dataAso.length > 0) {
                 $('#info-vehiculo').removeClass('d-none');
                 $('#new-placa').text(placa);
-                $('#no-vehiculo').addClass('d-none');
+                $('#no-vehiculo').text('existe');
                 $('#pregunta-vehiculo').text("Ya esta asociado al conductor actual");
                 visualizacionBotonesVerificarVehiculo();
             } else {
@@ -542,11 +542,11 @@ function consultarVehiculo(placa) {
             $('#info-vehiculo').removeClass('d-none');
             $('#new-placa').text(placa);
             if (dataVeh.length > 0) {
-                $('#no-vehiculo').addClass('d-none');
+                $('#no-vehiculo').text('existe');
                 $('#pregunta-vehiculo').text("¿Desea asociarlo al conductor actual?");
                 visualizacionBotonesVerificarVehiculo('#btnAsociarVehiculo');
             } else {
-                $('#no-vehiculo').removeClass('d-none');
+                $('#no-vehiculo').text('no existe');
                 $('#pregunta-vehiculo').text("¿Desea crear y asociar este vehículo?");
                 visualizacionBotonesVerificarVehiculo('#btnCrearNuevoVehiculo');
                 limpiarDatosVehiculo();
