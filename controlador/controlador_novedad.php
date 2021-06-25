@@ -47,4 +47,9 @@ switch ($_POST['accion']) {
         $consulta = $PR->CargarNovedadesPorNumeroTicket($_POST['id']);
         echo json_encode($consulta);
         break;
+    case 'mostrar':
+        $PR = new Modelo_Novedad();
+        $consulta = $PR->CargarNovedadesPorRegistro($_POST['id']);
+        echo json_encode($consulta);
+        break;
 }
