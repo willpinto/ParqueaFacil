@@ -19,19 +19,19 @@
         <div class="row pt-4 pb-5">
             <div class="col"></div>
             <div class="col-1">
-                <button id="login" class="btn btn-primary-dark py-3 px-4" data-toggle="tooltip" data-placement="left"
+                <button id="login" class="btn btn-primary-light py-3 px-4" data-toggle="tooltip" data-placement="left"
                     title="Login personal SENA "><i class="fas fa-sign-in-alt"></i></button>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <h1 class="text-right display-3 font-weight-bold text-primary-dark">Bienvenido</h1>
+                <h1 class="text-right display-3 font-weight-bold text-primary-lighter">Bienvenido</h1>
             </div>
         </div>
         <div class="row mb-5">
             <div class="col"></div>
             <div class="col-3">
-                <h3 class="text-center text-white bg-primary-dark">Parquea Fácil</h3>
+                <h3 class="text-center text-white bg-primary-light">Parquea Fácil</h3>
             </div>
         </div>
         <div class="row">
@@ -46,14 +46,14 @@
                         <div class="row">
                             <div class="col">
                                 <label>Cédula</label>
-                                <input class="form-control" id="cedula" type="number" autocomplete="false" required>
+                                <input class="form-control wo-arrows" id="cedula" type="number" required>
                             </div>
                             <div class="col"></div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <label>Placa</label>
-                                <input class="form-control text-uppercase mask-placa" id="placa" type="text" autocomplete="false" required>
+                                <input class="form-control text-uppercase mask-placa" id="placa" type="text" autocomplete="off" required>
                             </div>
                             <div class="col pt-4">
                                 <button id="ingresar-propietario" class="btn btn-orange px-4">Consultar</button>
@@ -82,7 +82,7 @@
                             <div class="col">
                                 <div class="form-group my-3">
                                     <label>Usuario</label>
-                                    <input class="form-control" id="user" type="number"
+                                    <input class="form-control wo-arrows" id="user" type="number"
                                         oninvalid="this.setCustomValidity('Usuario o contraseña invalidos')"
                                         oninput="this.setCustomValidity('')" required autocomplete="false">
                                 </div>

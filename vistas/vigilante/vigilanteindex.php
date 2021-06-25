@@ -18,20 +18,14 @@
     <div class="container vh-100">
         <div class="row pt-5">
             <div class="col">
-                <div class="row">
+                <div class="row mb-5">
                     <div class="col">
-                        <h1 class="display-3 font-weight-bold text-primary-dark">Bienvenido</h1>
+                        <h1 class="display-3 font-weight-bold text-primary-lighter">Parquea Fácil</h1>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-3">
-                        <h3 class="text-center text-white bg-primary-dark">Parquea Fácil</h3>
-                    </div>
-                    <div class="col"></div>
                 </div>
             </div>
             <div class="col-1">
-                <button id="logout" class="btn btn-primary-dark py-3 px-4" data-toggle="tooltip" data-placement="left" title="Logout"><i class="fas fa-sign-out-alt"></i></button>
+                <button id="logout" class="btn btn-primary-light py-3 px-4" data-toggle="tooltip" data-placement="left" title="Cerrar sesión"><i class="fas fa-sign-out-alt"></i></button>
             </div>
         </div>
         <div class="row h-65">
@@ -75,13 +69,13 @@
                     <div class="form-group row mt-5">
                         <label class="col-2 col-form-label">Cedula:</label>
                         <div class="col-9">
-                            <input class="form-control" id="cedula-ci" type="number" required>
+                            <input class="form-control wo-arrows" id="cedula-ci" type="number" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Placa:</label>
                         <div class="col-9">
-                            <input class="form-control text-uppercase mask-placa" id="placa-ci" type="text" required autocomplete="false">
+                            <input class="form-control text-uppercase mask-placa" id="placa-ci" type="text" required autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -113,7 +107,7 @@
                             <div class="col">
                                 <div class="row">
                                     <div class="col">
-                                        <h2 class="text-center">Parquea Fácil SENA</h2>
+                                        <h2 class="text-center text-primary-light">Parquea Fácil SENA</h2>
                                     </div>
                                     <div class="col-5">
                                         <img class="logo-sena-smallium" src="img/logos/senalogo.png" alt="sena logo">
@@ -229,13 +223,13 @@
                             <div class="form-group row mt-3">
                                 <label class="col-4 col-form-label">Cedula:</label>
                                 <div class="col">
-                                    <input class="form-control" id="cedula-co" type="number" required>
+                                    <input class="form-control wo-arrows" id="cedula-co" type="number" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-4 col-form-label">Placa:</label>
                                 <div class="col">
-                                    <input class="form-control text-uppercase mask-placa" id="placa-co" type="text" required autocomplete="false">
+                                    <input class="form-control text-uppercase mask-placa" id="placa-co" type="text" required autocomplete="off">
                                 </div>
                             </div>
                         </div>
@@ -245,7 +239,7 @@
                             <div class="form-group row mt-3">
                                 <label class="col-4 col-form-label">Número ticket:</label>
                                 <div class="col">
-                                    <input class="form-control" id="ticket-co" type="number" required>
+                                    <input class="form-control wo-arrows" id="ticket-co" type="number" required>
                                 </div>
                             </div>
                         </div>
@@ -279,10 +273,10 @@
                             <div class="col">
                                 <div class="row">
                                     <div class="col">
-                                        <h2 class="text-center">Parquea Fácil SENA</h2>
+                                        <h2 class="text-center text-primary-light">Parquea Fácil SENA</h2>
                                     </div>
                                     <div class="col-5">
-                                        <img class="logo-sena-small" src="img/logos/logo-sena.jpg" alt="sena logo">
+                                        <img class="logo-sena-smallium" src="img/logos/senalogo.png" alt="sena logo">
                                     </div>
                                 </div>
                                 <div class="row">

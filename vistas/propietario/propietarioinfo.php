@@ -17,25 +17,12 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col">
-                <div class="row pt-4">
-                    <div class="col">
-                        <h1 class="display-3 font-weight-bold text-primary-dark">Bienvenido</h1>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-6">
-                        <h3 class="text-center text-white bg-primary-dark">Parquea Fácil</h3>
-                    </div>
-                    <div class="col"></div>
-                </div>
-            </div>
-            <div class="col">
+            <div class="col my-5">
                 <div class="row h-100">
                     <div class="col d-flex justify-content-end align-items-center">
-                        <button id="misDatos" class="btn btn-orange mx-1 disabled">Mis datos</button>
-                        <button id="registrarse" class="btn btn-orange mx-1 d-none" data-toggle="tooltip" data-placement="bottom" title="Botón temporal/Primera vez al registrarse">Registrarse</button>
-                        <button id="cerrarSesionProp" class="btn btn-orange mx-1">Salir</button>
+                        <button id="misDatos" class="btn btn-primary mx-1 disabled">Mis datos</button>
+                        <button id="registrarse" class="btn btn-warning mx-1 d-none" data-toggle="tooltip" data-placement="bottom" title="Botón temporal/Primera vez al registrarse">Registrarse</button>
+                        <button id="cerrarSesionProp" class="btn btn-danger mx-1">Salir</button>
                     </div>
                 </div>
             </div>
@@ -81,7 +68,7 @@
             <div class="col ml-3">
                 <div class="row">
                     <div class="col">
-                        <h1 class="text-primary-dark">Cámaras</h1>
+                        <h1 class="text-primary">Cámaras</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -157,7 +144,7 @@
                                     <div class="form-group row">
                                         <label class="col-4 col-form-label">*Nombres</label>
                                         <div class="col">
-                                            <input type="text" class="form-control" id="nombres">
+                                            <input type="text" class="form-control" id="nombres" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -165,7 +152,7 @@
                                     <div class="form-group row">
                                         <label class="col-4 col-form-label">*Apellidos</label>
                                         <div class="col">
-                                            <input type="text" class="form-control" id="apellidos">
+                                            <input type="text" class="form-control" id="apellidos" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -175,7 +162,7 @@
                                     <div class="form-group row">
                                         <label class="col-4 col-form-label">*Dirección</label>
                                         <div class="col">
-                                            <input type="text" class="form-control" id="direccion">
+                                            <input type="text" class="form-control" id="direccion" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -183,7 +170,7 @@
                                     <div class="form-group row">
                                         <label class="col-4 col-form-label">*Teléfono</label>
                                         <div class="col">
-                                            <input type="number" class="form-control" id="telefono">
+                                            <input type="number" class="form-control wo-arrows" id="telefono">
                                         </div>
                                     </div>
                                 </div>
@@ -193,7 +180,7 @@
                                     <div class="form-group row">
                                         <label class="col-4 col-form-label">*Correo</label>
                                         <div class="col">
-                                            <input type="email" class="form-control" id="correo">
+                                            <input type="email" class="form-control" id="correo" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -245,7 +232,7 @@
                                     <div class="form-group row">
                                         <label class="col-4 col-form-label">*Número licencia</label>
                                         <div class="col">
-                                            <input type="number" class="form-control" id="numero-licencia">
+                                            <input type="number" class="form-control wo-arrows" id="numero-licencia">
                                         </div>
                                     </div>
                                 </div>
@@ -332,7 +319,7 @@
                                 </div>
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label class="col-2 col-form-label">Placa:</label>
+                                        <label class="col-3 col-form-label">Placa:</label>
                                         <div class="col">
                                             <input type="text" class="form-control" id="placa" disabled>
                                         </div>
@@ -340,18 +327,18 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col">
-                                    <label>*T.Vehiculo:</label>
+                                <div class="col-2">
+                                    <label>*Tipo Vehiculo:</label>
                                 </div>
-                                <div class="col">
+                                <div class="col-2">
                                     <input type="radio" name="tipo-veh" class="form-control check-image" id="chkCarro" value="carro">
                                     <label for="chkCarro" class="check-image-label"><img src="img/logos/carro.png" /></label>
                                 </div>
-                                <div class="col">
+                                <div class="col-2">
                                     <input type="radio" name="tipo-veh" class="form-control check-image" id="chkMoto" value="moto">
                                     <label for="chkMoto" class="check-image-label"><img src="img/logos/moto.png" /></label>
                                 </div>
-                                <div class="col">
+                                <div class="col-2">
                                     <input type="radio" name="tipo-veh" class="form-control check-image" id="chkBici" value="bicicleta">
                                     <label for="chkBici" class="check-image-label"><img src="img/logos/bicicleta.png" /></label>
                                 </div>
@@ -359,35 +346,17 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label class="col-2 col-form-label">*Marca:</label>
+                                        <label class="col-3 col-form-label">*Marca:</label>
                                         <div class="col">
-                                            <input type="text" class="form-control" id="marca">
+                                            <input type="text" class="form-control" id="marca" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label class="col-2 col-form-label">*Modelo:</label>
+                                        <label class="col-3 col-form-label">*Modelo:</label>
                                         <div class="col">
-                                            <input type="text" class="form-control" id="modelo">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-group row">
-                                        <label class="col-2 col-form-label">*Línea:</label>
-                                        <div class="col">
-                                            <input type="text" class="form-control" id="linea">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-group row">
-                                        <label class="col-2 col-form-label">*Servicio:</label>
-                                        <div class="col">
-                                            <input type="text" class="form-control" id="servicio">
+                                            <input type="text" class="form-control" id="modelo" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -395,35 +364,17 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label class="col-2 col-form-label">Cilindraje:</label>
+                                        <label class="col-3 col-form-label">*Línea:</label>
                                         <div class="col">
-                                            <input type="number" class="form-control" id="cilindraje">
+                                            <input type="text" class="form-control" id="linea" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label class="col-2 col-form-label">N° Chasis:</label>
+                                        <label class="col-3 col-form-label">*Servicio:</label>
                                         <div class="col">
-                                            <input type="text" class="form-control text-uppercase" id="chasis">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-group row">
-                                        <label class="col-2 col-form-label">N° Motor:</label>
-                                        <div class="col">
-                                            <input type="text" class="form-control text-uppercase" id="motor">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-group row">
-                                        <label class="col-2 col-form-label">*Color:</label>
-                                        <div class="col">
-                                            <input type="text" class="form-control" id="color">
+                                            <input type="text" class="form-control" id="servicio" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -431,9 +382,45 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label class="col-2 col-form-label">Carroceria:</label>
+                                        <label class="col-3 col-form-label">Cilindraje:</label>
                                         <div class="col">
-                                            <input type="text" class="form-control" id="tcarroceria">
+                                            <input type="number" class="form-control wo-arrows" id="cilindraje">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label class="col-3 col-form-label">N° Chasis:</label>
+                                        <div class="col">
+                                            <input type="text" class="form-control text-uppercase" id="chasis" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label class="col-3 col-form-label">N° Motor:</label>
+                                        <div class="col">
+                                            <input type="text" class="form-control text-uppercase" id="motor" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label class="col-3 col-form-label">*Color:</label>
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="color" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label class="col-3 col-form-label">Carroceria:</label>
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="tcarroceria" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>

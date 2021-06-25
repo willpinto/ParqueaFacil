@@ -40,8 +40,8 @@
                         </span>
                         <span class="user-role">Administrator (<?php echo $_POST['cargo-login']; ?>)</span>
                         <span class="user-status">
-                            <i class="fa fa-circle"></i>
-                            <span>Online</span>
+                            <!--<i class="fa fa-circle"></i>
+                            <span>Online</span>-->
                         </span>
                     </div>
                 </div>
@@ -179,7 +179,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label>Número de documento del conductor</label>
-                                            <input type="number" class="form-control" id="documento-cond-search">
+                                            <input type="number" class="form-control wo-arrows" id="documento-cond-search">
                                         </div>
                                     </div>
                                     <div class="col-4 d-flex align-items-center">
@@ -374,13 +374,13 @@
                                     <div class="col">
                                         <div class="form-group my-3">
                                             <label>Cédula:</label>
-                                            <input class="form-control" id="cedula-adm" type="number" required>
+                                            <input class="form-control wo-arrows" id="cedula-adm" type="number" required>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group my-3">
                                             <label>Nombres:</label>
-                                            <input class="form-control" id="nombres-adm" type="text" required>
+                                            <input class="form-control" id="nombres-adm" type="text" required autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -388,13 +388,13 @@
                                     <div class="col">
                                         <div class="form-group my-3">
                                             <label>Cargo:</label>
-                                            <input class="form-control" id="cargo-adm" type="text" required>
+                                            <input class="form-control" id="cargo-adm" type="text" required autocomplete="off">
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group my-3">
                                             <label>Contraseña:</label>
-                                            <input class="form-control" id="pass-adm" type="text" required>
+                                            <input class="form-control" id="pass-adm" type="text" required autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -403,7 +403,7 @@
                                     <div class="col">
                                         <div class="form-group my-3">
                                             <label>Repita contraseña:</label>
-                                            <input class="form-control" id="pass-rep-adm" type="text" required>
+                                            <input class="form-control" id="pass-rep-adm" type="text" required autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -441,13 +441,13 @@
                                     <div class="col">
                                         <div class="form-group my-3">
                                             <label>Cédula:</label>
-                                            <input class="form-control" id="cedula-vig" type="number" required>
+                                            <input class="form-control wo-arrows" id="cedula-vig" type="number" required>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group my-3">
                                             <label>Nombres:</label>
-                                            <input class="form-control" id="nombres-vig" type="text" required>
+                                            <input class="form-control" id="nombres-vig" type="text" required autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -455,13 +455,13 @@
                                     <div class="col">
                                         <div class="form-group my-3">
                                             <label>Rol:</label>
-                                            <input class="form-control" id="rol-vig" type="text" required>
+                                            <input class="form-control" id="rol-vig" type="text" required autocomplete="off">
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group my-3">
                                             <label>Turno:</label>
-                                            <input class="form-control" id="turno-vig" type="text" required>
+                                            <input class="form-control" id="turno-vig" type="text" required autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -469,13 +469,13 @@
                                     <div class="col">
                                         <div class="form-group my-3">
                                             <label>Contraseña:</label>
-                                            <input class="form-control" id="pass-vig" type="text" required>
+                                            <input class="form-control" id="pass-vig" type="text" required autocomplete="off">
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group my-3">
                                             <label>Repita contraseña:</label>
-                                            <input class="form-control" id="pass-rep-vig" type="text" required>
+                                            <input class="form-control" id="pass-rep-vig" type="text" required autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -517,7 +517,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col">
-                            <h6>El conductor "<span id="new-doc"></span>" no existe</h6>
+                            <h6>El conductor "<span id="new-doc"></span>"<span class="text-danger"> no existe</span></h6>
                             <h6>¿Desea crearlo?</h6>
                         </div>
                     </div>
@@ -551,7 +551,7 @@
                                         <div class="form-group row">
                                             <label class="col-4 col-form-label">Documento</label>
                                             <div class="col">
-                                                <input type="number" class="form-control" id="documento-cond" disabled>
+                                                <input type="number" class="form-control wo-arrows" id="documento-cond" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -574,7 +574,7 @@
                                         <div class="form-group row">
                                             <label class="col-4 col-form-label">*Nombres</label>
                                             <div class="col">
-                                                <input type="text" class="form-control" id="nombres-cond">
+                                                <input type="text" class="form-control" id="nombres-cond" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -582,7 +582,7 @@
                                         <div class="form-group row">
                                             <label class="col-4 col-form-label">*Apellidos</label>
                                             <div class="col">
-                                                <input type="text" class="form-control" id="apellidos-cond">
+                                                <input type="text" class="form-control" id="apellidos-cond" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -592,7 +592,7 @@
                                         <div class="form-group row">
                                             <label class="col-4 col-form-label">*Dirección</label>
                                             <div class="col">
-                                                <input type="text" class="form-control" id="direccion-cond">
+                                                <input type="text" class="form-control" id="direccion-cond" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -600,7 +600,7 @@
                                         <div class="form-group row">
                                             <label class="col-4 col-form-label">*Teléfono</label>
                                             <div class="col">
-                                                <input type="number" class="form-control" id="telefono-cond">
+                                                <input type="number" class="form-control wo-arrows" id="telefono-cond">
                                             </div>
                                         </div>
                                     </div>
@@ -610,7 +610,7 @@
                                         <div class="form-group row">
                                             <label class="col-4 col-form-label">*Correo</label>
                                             <div class="col">
-                                                <input type="email" class="form-control" id="correo-cond">
+                                                <input type="email" class="form-control" id="correo-cond" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -662,7 +662,7 @@
                                         <div class="form-group row">
                                             <label class="col-4 col-form-label">*Número licencia</label>
                                             <div class="col">
-                                                <input type="number" class="form-control" id="numero-licencia-cond">
+                                                <input type="number" class="form-control wo-arrows" id="numero-licencia-cond">
                                             </div>
                                         </div>
                                     </div>
@@ -698,7 +698,7 @@
                         <div class="col">
                             <div class="form-group">
                                 <label>Placa del vehículo</label>
-                                <input type="text" class="form-control text-uppercase mask-placa" id="placa-veh-search" autocomplete="false">
+                                <input type="text" class="form-control text-uppercase mask-placa" id="placa-veh-search" autocomplete="off">
                             </div>
                         </div>
                         <div class="col-4 d-flex align-items-center">
@@ -707,8 +707,8 @@
                     </div>
                     <div id="info-vehiculo" class="row d-none">
                         <div class="col">
-                            <h6>El vehículo "<span id="new-placa"></span>" <span id="no-vehiculo">no</span> existe</h6>
-                            <h6 id="pregunta-vehiculo"></h6>
+                            <h6>El vehículo "<span id="new-placa"></span>" <span id="no-vehiculo" class="text-danger"></span></h6>
+                            <h6 id="pregunta-vehiculo" class="font-italic"></h6>
                         </div>
                     </div>
                 </div>
@@ -737,31 +737,32 @@
                         <div class="row">
                             <div class="col my-3">
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-4">
                                         <div class="form-group row">
-                                            <label class="col-2 col-form-label">Placa:</label>
+                                            <label class="col-3 col-form-label">Placa:</label>
                                             <div class="col">
-                                                <input type="text" class="form-control text-uppercase mask-placa" id="placa-veh" disabled>
+                                                <input type="text" class="form-control text-uppercase mask-placa" id="placa-veh" disabled autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col"></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-1">
-                                        <label>*T.Vehiculo:</label>
-                                    </div>
-                                    <div class="col-3">
-                                        <input type="radio" name="tipo-veh" class="form-control check-image" id="chkCarro" value="carro">
-                                        <label for="chkCarro" class="check-image-label"><img src="img/logos/carro.png" /></label>
-                                    </div>
-                                    <div class="col-3">
-                                        <input type="radio" name="tipo-veh" class="form-control check-image" id="chkMoto" value="moto">
-                                        <label for="chkMoto" class="check-image-label"><img src="img/logos/moto.png" /></label>
-                                    </div>
-                                    <div class="col-3">
-                                        <input type="radio" name="tipo-veh" class="form-control check-image" id="chkBici" value="bicicleta">
-                                        <label for="chkBici" class="check-image-label"><img src="img/logos/bicicleta.png" /></label>
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <label>*Tipo Vehiculo:</label>
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="radio" name="tipo-veh" class="form-control check-image" id="chkCarro" value="carro">
+                                                <label for="chkCarro" class="check-image-label"><img src="img/logos/carro.png" /></label>
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="radio" name="tipo-veh" class="form-control check-image" id="chkMoto" value="moto">
+                                                <label for="chkMoto" class="check-image-label"><img src="img/logos/moto.png" /></label>
+                                            </div>
+                                            <div class="col-3">
+                                                <input type="radio" name="tipo-veh" class="form-control check-image" id="chkBici" value="bicicleta">
+                                                <label for="chkBici" class="check-image-label"><img src="img/logos/bicicleta.png" /></label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -769,7 +770,7 @@
                                         <div class="form-group row">
                                             <label class="col-2 col-form-label">*Marca:</label>
                                             <div class="col">
-                                                <input type="text" class="form-control" id="marca-veh">
+                                                <input type="text" class="form-control" id="marca-veh" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -777,7 +778,7 @@
                                         <div class="form-group row">
                                             <label class="col-2 col-form-label">*Modelo:</label>
                                             <div class="col">
-                                                <input type="text" class="form-control" id="modelo-veh">
+                                                <input type="text" class="form-control" id="modelo-veh" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -787,7 +788,7 @@
                                         <div class="form-group row">
                                             <label class="col-2 col-form-label">*Línea:</label>
                                             <div class="col">
-                                                <input type="text" class="form-control" id="linea-veh">
+                                                <input type="text" class="form-control" id="linea-veh" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -795,7 +796,7 @@
                                         <div class="form-group row">
                                             <label class="col-2 col-form-label">*Servicio:</label>
                                             <div class="col">
-                                                <input type="text" class="form-control" id="servicio-veh">
+                                                <input type="text" class="form-control" id="servicio-veh" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -805,7 +806,7 @@
                                         <div class="form-group row">
                                             <label class="col-2 col-form-label">Cilindraje:</label>
                                             <div class="col">
-                                                <input type="number" class="form-control" id="cilindraje-veh">
+                                                <input type="number" class="form-control wo-arrows" id="cilindraje-veh">
                                             </div>
                                         </div>
                                     </div>
@@ -813,7 +814,7 @@
                                         <div class="form-group row">
                                             <label class="col-2 col-form-label">N° Chasis:</label>
                                             <div class="col">
-                                                <input type="text" class="form-control text-uppercase" id="chasis-veh">
+                                                <input type="text" class="form-control text-uppercase" id="chasis-veh" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -823,7 +824,7 @@
                                         <div class="form-group row">
                                             <label class="col-2 col-form-label">N° Motor:</label>
                                             <div class="col">
-                                                <input type="text" class="form-control text-uppercase" id="motor-veh">
+                                                <input type="text" class="form-control text-uppercase" id="motor-veh" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -831,7 +832,7 @@
                                         <div class="form-group row">
                                             <label class="col-2 col-form-label">*Color:</label>
                                             <div class="col">
-                                                <input type="text" class="form-control" id="color-veh">
+                                                <input type="text" class="form-control" id="color-veh" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
@@ -841,7 +842,7 @@
                                         <div class="form-group row">
                                             <label class="col-2 col-form-label">Tipo carroceria:</label>
                                             <div class="col">
-                                                <input type="text" class="form-control" id="tcarroceria-veh">
+                                                <input type="text" class="form-control" id="tcarroceria-veh" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>
