@@ -561,7 +561,9 @@ function consultarVehiculo(placa) {
 
 function llenarDatosVehiculo(data) {
     $('#placa-veh').val(data.placa);
-    $(`input:radio[name=tipo-veh][value=${data.tipo}]`).prop('checked', true);
+    if(data.tipo != "") {
+        $(`input:radio[name=tipo-veh][value=${data.tipo}]`).prop('checked', true);
+    }
     $('#marca-veh').val(data.marca);
     $('#linea-veh').val(data.linea);
     $('#modelo-veh').val(data.modelo);
