@@ -16,7 +16,7 @@ try {
 	DROP TABLE IF EXISTS registro;
 		CREATE TABLE registro(numero_ticket INT AUTO_INCREMENT PRIMARY KEY, fecha_ingreso DATETIME NOT NULL, fecha_salida DATETIME NOT NULL, estado BIT(1) NOT NULL, id_cond_veh INT NOT NULL, documento_vig INT NOT NULL, FOREIGN KEY(id_cond_veh) REFERENCES CONDUCTOR_VEHICULO(id), FOREIGN KEY(documento_vig) REFERENCES VIGILANTE(documento));
 	DROP TABLE IF EXISTS noverdad_vehiculo;
-		CREATE TABLE noverdad_vehiculo(id INT AUTO_INCREMENT PRIMARY KEY, tipo VARCHAR(25) NOT NULL, descripcion VARCHAR(250) DEFAULT NULL, numero_ticket_reg INT NOT NULL, FOREIGN KEY(numero_ticket_reg) REFERENCES REGISTRO(numero_ticket));";
+		CREATE TABLE novedad_vehiculo(id INT AUTO_INCREMENT PRIMARY KEY, tipo VARCHAR(25) NOT NULL, descripcion VARCHAR(250) DEFAULT NULL, numero_ticket_reg INT NOT NULL, FOREIGN KEY(numero_ticket_reg) REFERENCES REGISTRO(numero_ticket));";
 	$comando = $pdo->exec($sql);
 	$data['status'] = 'ok';
 } catch (PDOException $e) {
