@@ -427,13 +427,13 @@ function IngresarCheckInARegistro(idAsociado) {
 function ValidarMensajeAdicional() {
     let msg = "";
     if (debeRegistrarsePropietario && debeRegistrarseVehiculo) {
-        msg += "Apreciado propietario, por favor llene los datos ingresando por \"Revisa tu vehículo\" en sena.parqueafacil.com";
+        msg += "Apreciado conductor, por favor llene los datos ingresando por \"Revisa tu vehículo\" en parqueafacilsena.com";
     } else if (faltaDatosPropietario || faltaDatosVehiculo) {
-        msg += "Apreciado propietario, aún no te has registrado, por favor hágalo ingresando desde \"Revisa tu vehículo\" en sena.parqueafacil.com";
+        msg += "Apreciado conductor, aún no te has registrado, por favor hágalo ingresando desde \"Revisa tu vehículo\" en parqueafacilsena.com";
     } else if (debeRegistrarseVehiculo) {
-        msg += "Apreciado propietario, por favor ingrese su nuevo vehículo ingresando por \"Revisa tu vehículo\" en sena.parqueafacil.com";
+        msg += "Apreciado conductor, por favor ingrese su nuevo vehículo ingresando por \"Revisa tu vehículo\" en parqueafacilsena.com";
     } else if (faltaDatosVehiculo) {
-        msg += "Apreciado propietario, te falta registrar tu vehículo, hazlo en \"Revisa tu vehículo\" en el sitio sena.parqueafacil.com";
+        msg += "Apreciado conductor, te falta registrar tu vehículo, hazlo en \"Revisa tu vehículo\" en el sitio parqueafacilsena.com";
     }
     $('#msg-adicional').text(msg);
 }
