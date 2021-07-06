@@ -782,6 +782,7 @@ function destruirTablaAlternativa(table) {
     $(table).empty();
     if(altTabla != null) {
         altTabla.destroy();
+        altTabla = undefined;
         $(`${table} thead`).remove();
     }
 }
@@ -790,6 +791,7 @@ function destruirTabla(table) {
     $(table).empty();
     if(tabla != null) {
         tabla.destroy();
+        tabla = undefined;
         $(`${table} thead`).remove();
     }
 }
