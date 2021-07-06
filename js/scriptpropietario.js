@@ -140,7 +140,7 @@ function ValidarBotones() {
         $('#registrarse').removeClass('d-none');
     } else {
         $('#registrarse').addClass('d-none');
-        $('#misDatos').removeClass('disabled');
+        $('#misDatos').removeAttr('disabled');
     }
     if (dataVehiculo[0].tipo == "" || dataVehiculo[0].marca == "" ||
         dataVehiculo[0].modelo == "" || dataVehiculo[0].servicio == "" || dataVehiculo[0].color == "") {
