@@ -20,7 +20,7 @@
             <div class="col my-5">
                 <div class="row h-100">
                     <div class="col d-flex justify-content-end align-items-center">
-                        <button id="misDatos" class="btn btn-primary mx-1 disabled">Mis datos</button>
+                        <button id="misDatos" class="btn btn-primary mx-1" disabled>Mis datos</button>
                         <button id="registrarse" class="btn btn-warning mx-1 d-none" data-toggle="tooltip" data-placement="bottom" title="Botón temporal/Primera vez al registrarse">Registrarse</button>
                         <button id="cerrarSesionProp" class="btn btn-danger mx-1">Salir</button>
                     </div>
@@ -309,15 +309,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col">
-                                    <div class="form-group row">
-                                        <label class="col-3 col-form-label">Documento:</label>
-                                        <div class="col">
-                                            <input type="number" class="form-control" id="cedula" disabled>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
+                                <div class="col-4">
                                     <div class="form-group row">
                                         <label class="col-3 col-form-label">Placa:</label>
                                         <div class="col">
@@ -325,22 +317,24 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-2">
-                                    <label>*Tipo Vehiculo:</label>
-                                </div>
-                                <div class="col-2">
-                                    <input type="radio" name="tipo-veh" class="form-control check-image" id="chkCarro" value="carro">
-                                    <label for="chkCarro" class="check-image-label"><img src="img/logos/carro.png" /></label>
-                                </div>
-                                <div class="col-2">
-                                    <input type="radio" name="tipo-veh" class="form-control check-image" id="chkMoto" value="moto">
-                                    <label for="chkMoto" class="check-image-label"><img src="img/logos/moto.png" /></label>
-                                </div>
-                                <div class="col-2">
-                                    <input type="radio" name="tipo-veh" class="form-control check-image" id="chkBici" value="bicicleta">
-                                    <label for="chkBici" class="check-image-label"><img src="img/logos/bicicleta.png" /></label>
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <label>*Tipo Vehiculo:</label>
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="radio" name="tipo-veh" class="form-control check-image" id="chkCarro" value="carro">
+                                            <label for="chkCarro" class="check-image-label"><img src="img/logos/carro.png" /></label>
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="radio" name="tipo-veh" class="form-control check-image" id="chkMoto" value="moto">
+                                            <label for="chkMoto" class="check-image-label"><img src="img/logos/moto.png" /></label>
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="radio" name="tipo-veh" class="form-control check-image" id="chkBici" value="bicicleta">
+                                            <label for="chkBici" class="check-image-label"><img src="img/logos/bicicleta.png" /></label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
