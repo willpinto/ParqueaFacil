@@ -329,6 +329,7 @@ $(document).ready(function() {
 
     $('#btnRegistrarVehiculo').click(function() {
         esGestionar = true;
+        limpiarDatosVehiculo();
         $('#titulo-vehiculo-modal').text("Registrar vehiculo");
         $('#vehiculo-modal').modal("show");
         $('#btnGuardarVehiculo').text("Guardar");
