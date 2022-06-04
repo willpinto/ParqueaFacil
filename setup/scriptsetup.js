@@ -83,7 +83,7 @@ $(document).ready(function () {
             success: function (data) {
                 if (data.status == 'ok') {
                     alert("Administrador creado");
-                    location.href = "../";
+                    location.href = "../vistas/login.html";
                 } else {
                     alert("Datos no validos");
                 }

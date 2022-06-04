@@ -2,7 +2,7 @@
 $servidor = 'localhost';
 $usuario = 'root';
 $contrasena = '';
-$basedatos = 'parqueafaciltestv2';
+$basedatos = 'parqueafaciltest';
 
 class conexion
 {
@@ -12,7 +12,7 @@ class conexion
         $servidor = 'localhost';
         $usuario = 'root';
         $contrasena = '';
-        $basedatos = 'parqueafaciltestv2';
+        $basedatos = 'parqueafaciltest';
         $sql = "mysql:host=" . $servidor . ";dbname=" . $basedatos . ";charset=utf8";
         $pdo = new PDO($sql, $usuario, $contrasena);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
